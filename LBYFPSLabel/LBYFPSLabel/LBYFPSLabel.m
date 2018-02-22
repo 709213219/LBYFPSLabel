@@ -1,7 +1,7 @@
 #import "LBYFPSLabel.h"
 #import "LBYProxy.h"
 
-#define kSize CGSizeMake(55, 20)
+#define lbyKSize CGSizeMake(55, 20)
 
 @implementation LBYFPSLabel {
     CADisplayLink *_link;
@@ -10,12 +10,12 @@
 }
 
 - (instancetype)init {
-    return [self initWithFrame:CGRectMake(10, 30, kSize.width, kSize.height)];
+    return [self initWithFrame:CGRectMake(10, 30, lbyKSize.width, lbyKSize.height)];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (frame.size.width == 0 && frame.size.height == 0) {
-        frame.size = kSize;
+        frame.size = lbyKSize;
     }
     
     self = [super initWithFrame:frame];
@@ -47,7 +47,7 @@
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
-    return kSize;
+    return lbyKSize;
 }
 
 - (void)panGes:(UIPanGestureRecognizer *)ges {
