@@ -78,6 +78,16 @@
     [text addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, text.length - 3)];
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(text.length - 3, 3)];
     self.attributedText = text;
+    
+    if ([self viewLevelChange]) {
+        [self.superview bringSubviewToFront:self];
+    }
+}
+
+- (BOOL)viewLevelChange {
+    if (!self.superview || !self.superview.subviews.count) return NO;
+    
+    return self.superview.subviews.lastObject != self;
 }
 
 __attribute__((constructor)) static void LBYFPSLabelConstructor(void) {
